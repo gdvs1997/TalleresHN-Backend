@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN.API\\BackendTalleresHN.PersistenciaDatos\\BackendTalleresHN.PersistenciaDatos.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN.API\\BackendTalleresHN.PersistenciaDatos\\BackendTalleresHN.PersistenciaDatos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN.API\\BackendTalleresHN.PersistenciaDatos\\BackendTalleresHN.PersistenciaDatos.csproj",
+        "projectName": "BackendTalleresHN.PersistenciaDatos",
+        "projectPath": "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN.API\\BackendTalleresHN.PersistenciaDatos\\BackendTalleresHN.PersistenciaDatos.csproj",
+        "packagesPath": "C:\\Users\\gdvs1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN.API\\BackendTalleresHN.PersistenciaDatos\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\gdvs1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.405\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
