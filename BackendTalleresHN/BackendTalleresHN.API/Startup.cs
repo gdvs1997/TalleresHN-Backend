@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BackendTalleresHN.Dominio.Models;
 using BackendTalleresHN.FuenteDatos.Contexts;
+using BackendTalleresHN.Logica.Login;
 using BackendTalleresHN.Logica.Usuario;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -35,6 +36,7 @@ namespace BackendTalleresHN.API
         {
             //services.AddScoped<IRepository, Repository<TalleresHNDbContext>>();
             services.AddScoped<IUsuarioLogica, UsuarioLogica>();
+            services.AddScoped<ILoginLogica, LoginLogica>();
 
             services.AddDbContext<TalleresHNDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("MariaDB")));

@@ -47,6 +47,8 @@ namespace BackendTalleresHN.Logica.Usuario
 
                 if (result.Succeeded)
                 {
+                    var BuscarUsuario = await _userManager.FindByNameAsync(model.UserName);
+                    var Id = BuscarUsuario.Id;
                     return BuildToken(new LoginInfo { UserName = model.UserName, Password = model.Password });
                 }
                 else

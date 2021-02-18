@@ -9,6 +9,7 @@ namespace BackendTalleresHN.FuenteDatos.Contexts
 {
     public class TalleresHNDbContext: IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Cliente> Cliente { get; set; }
         public TalleresHNDbContext(DbContextOptions<TalleresHNDbContext> options) : base(options)
         {
 
