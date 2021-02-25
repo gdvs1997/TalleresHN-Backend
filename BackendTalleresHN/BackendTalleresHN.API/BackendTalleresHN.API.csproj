@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BackendTalleresHN.FuenteDatos\BackendTalleresHN.FuenteDatos.csproj" />
     <ProjectReference Include="..\BackendTalleresHN.Logica\BackendTalleresHN.Logica.csproj" />
+    <ProjectReference Include="..\BackendTalleresHN.PersistenciaDatos\BackendTalleresHN.PersistenciaDatos.csproj" />
   </ItemGroup>
 
 

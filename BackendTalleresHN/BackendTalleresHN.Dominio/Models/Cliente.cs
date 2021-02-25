@@ -15,8 +15,12 @@ namespace BackendTalleresHN.Dominio.Models
         public string Nombre { get; set; }
         [Required(ErrorMessage = "This field is required")]
         public string Apellidos { get; set; }
+        [Required(ErrorMessage = "This field is required")]
+        public string UserId { get; set; }
         public ApplicationUser User { get; set; }
+        [Required(ErrorMessage = "This field is required")]
         public DateTime FechaCreacion { get; set; }
-        public Boolean Estado { get; set; }
+        [Required(ErrorMessage = "This field is required")]
+        public bool Estado { get; set; }
     }
 }

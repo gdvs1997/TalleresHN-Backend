@@ -63,3 +63,8 @@ C:\Users\gdvs1\Documents\CEUTEC\Proyecto de Graduacion Fase 1\2021 - Q1\Aplicaci
 C:\Users\gdvs1\Documents\CEUTEC\Proyecto de Graduacion Fase 1\2021 - Q1\Aplicacion\Backend\TalleresHN-Backend\BackendTalleresHN\BackendTalleresHN.API\bin\Debug\netcoreapp3.1\BackendTalleresHN.Logica.pdb
 C:\Users\gdvs1\Documents\CEUTEC\Proyecto de Graduacion Fase 1\2021 - Q1\Aplicacion\Backend\TalleresHN-Backend\BackendTalleresHN\BackendTalleresHN.API\bin\Debug\netcoreapp3.1\BackendTalleresHN.Transversal.pdb
 C:\Users\gdvs1\Documents\CEUTEC\Proyecto de Graduacion Fase 1\2021 - Q1\Aplicacion\Backend\TalleresHN-Backend\BackendTalleresHN\BackendTalleresHN.API\obj\Debug\netcoreapp3.1\BackendTalleresHN.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gdvs1\Documents\CEUTEC\Proyecto de Graduacion Fase 1\2021 - Q1\Aplicacion\Backend\TalleresHN-Backend\BackendTalleresHN\BackendTalleresHN.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\gdvs1\Documents\CEUTEC\Proyecto de Graduacion Fase 1\2021 - Q1\Aplicacion\Backend\TalleresHN-Backend\BackendTalleresHN\BackendTalleresHN.API\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\gdvs1\Documents\CEUTEC\Proyecto de Graduacion Fase 1\2021 - Q1\Aplicacion\Backend\TalleresHN-Backend\BackendTalleresHN\BackendTalleresHN.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\gdvs1\Documents\CEUTEC\Proyecto de Graduacion Fase 1\2021 - Q1\Aplicacion\Backend\TalleresHN-Backend\BackendTalleresHN\BackendTalleresHN.API\bin\Debug\netcoreapp3.1\BackendTalleresHN.PersistenciaDatos.dll
+C:\Users\gdvs1\Documents\CEUTEC\Proyecto de Graduacion Fase 1\2021 - Q1\Aplicacion\Backend\TalleresHN-Backend\BackendTalleresHN\BackendTalleresHN.API\bin\Debug\netcoreapp3.1\BackendTalleresHN.PersistenciaDatos.pdb

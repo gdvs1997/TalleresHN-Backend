@@ -1,5 +1,7 @@
-﻿using BackendTalleresHN.Dominio.Models;
+﻿using AutoMapper;
+using BackendTalleresHN.Dominio.Models;
 using BackendTalleresHN.Dominio.Models.DTO;
+using BackendTalleresHN.PersistenciaDatos.Repository;
 using BackendTalleresHN.Transversal.Request;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,13 +22,15 @@ namespace BackendTalleresHN.Logica.Usuario
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
+        private readonly IRepository _repository;
         
         public UsuarioLogica( UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
-                              IConfiguration configuration)
+                              IConfiguration configuration, IRepository repository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
+            _repository = repository;
         }
         public async Task<ActionResult<UserToken>> CreateUserCliente(UserClientInfo model)
         {
@@ -48,7 +52,17 @@ namespace BackendTalleresHN.Logica.Usuario
                 if (result.Succeeded)
                 {
                     var BuscarUsuario = await _userManager.FindByNameAsync(model.UserName);
-                    var Id = BuscarUsuario.Id;
+                    model.UserId = BuscarUsuario.Id;
+
+                    var config = new MapperConfiguration(cfg =>
+                    {
+                        cfg.CreateMap<UserClientInfo, Cliente>();
+                    });
+                    IMapper iMapper = config.CreateMapper();
+                    var mappClass = iMapper.Map<UserClientInfo, Cliente>(model);
+
+                    await _repository.CreatedAsync(mappClass);
+
                     return BuildToken(new LoginInfo { UserName = model.UserName, Password = model.Password });
                 }
                 else

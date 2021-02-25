@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using BackendTalleresHN.Dominio.Models;
 using BackendTalleresHN.FuenteDatos.Contexts;
+using BackendTalleresHN.Logica.Empresas;
 using BackendTalleresHN.Logica.Login;
 using BackendTalleresHN.Logica.Usuario;
+using BackendTalleresHN.PersistenciaDatos.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,9 +36,10 @@ namespace BackendTalleresHN.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddScoped<IRepository, Repository<TalleresHNDbContext>>();
+            services.AddScoped<IRepository, Repository<TalleresHNDbContext>>();
             services.AddScoped<IUsuarioLogica, UsuarioLogica>();
             services.AddScoped<ILoginLogica, LoginLogica>();
+            services.AddScoped<IEmpresaLogica, EmpresaLogica>();
 
             services.AddDbContext<TalleresHNDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("MariaDB")));

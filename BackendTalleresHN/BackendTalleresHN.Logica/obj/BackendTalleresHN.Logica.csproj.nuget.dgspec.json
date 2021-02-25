@@ -96,6 +96,9 @@
               "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN\\BackendTalleresHN.Dominio\\BackendTalleresHN.Dominio.csproj": {
                 "projectPath": "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN\\BackendTalleresHN.Dominio\\BackendTalleresHN.Dominio.csproj"
               },
+              "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN\\BackendTalleresHN.PersistenciaDatos\\BackendTalleresHN.PersistenciaDatos.csproj": {
+                "projectPath": "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN\\BackendTalleresHN.PersistenciaDatos\\BackendTalleresHN.PersistenciaDatos.csproj"
+              },
               "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN\\BackendTalleresHN.Transversal\\BackendTalleresHN.Transversal.csproj": {
                 "projectPath": "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN\\BackendTalleresHN.Transversal\\BackendTalleresHN.Transversal.csproj"
               }
@@ -111,6 +114,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[3.1.7, )"
@@ -130,6 +137,72 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.406\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN\\BackendTalleresHN.PersistenciaDatos\\BackendTalleresHN.PersistenciaDatos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN\\BackendTalleresHN.PersistenciaDatos\\BackendTalleresHN.PersistenciaDatos.csproj",
+        "projectName": "BackendTalleresHN.PersistenciaDatos",
+        "projectPath": "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN\\BackendTalleresHN.PersistenciaDatos\\BackendTalleresHN.PersistenciaDatos.csproj",
+        "packagesPath": "C:\\Users\\gdvs1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gdvs1\\Documents\\CEUTEC\\Proyecto de Graduacion Fase 1\\2021 - Q1\\Aplicacion\\Backend\\TalleresHN-Backend\\BackendTalleresHN\\BackendTalleresHN.PersistenciaDatos\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\gdvs1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
