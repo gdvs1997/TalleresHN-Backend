@@ -39,7 +39,7 @@ namespace BackendTalleresHN.API
             services.AddScoped<IRepository, Repository<TalleresHNDbContext>>();
             services.AddScoped<IUsuarioLogica, UsuarioLogica>();
             services.AddScoped<ILoginLogica, LoginLogica>();
-            services.AddScoped<IEmpresaLogica, EmpresaLogica>();
+            services.AddScoped<ITallerLogica, TallerLogica>();
 
             services.AddDbContext<TalleresHNDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("MariaDB")));

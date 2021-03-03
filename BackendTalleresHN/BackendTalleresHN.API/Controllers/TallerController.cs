@@ -12,18 +12,18 @@ namespace BackendTalleresHN.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmpresaController : ControllerBase
+    public class TallerController : ControllerBase
     {
-        private readonly IEmpresaLogica _logica;
-        public EmpresaController(IEmpresaLogica logica)
+        private readonly ITallerLogica _logica;
+        public TallerController(ITallerLogica logica)
         {
             _logica = logica;
         }
 
         [HttpPost("Crear")]
-        public async Task<ActionResult<UserToken>> CreateUserEmpresa([FromBody] UserEmpresaInfo model)
+        public async Task<ActionResult<UserToken>> CreateUserTaller([FromBody] UserTallerInfo model)
         {
-            return await _logica.CreateUserEmpresa(model);
+            return await _logica.CreateUserTaller(model);
         }
     }
 }

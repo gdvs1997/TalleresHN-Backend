@@ -4,11 +4,11 @@ using System.Text;
 
 namespace BackendTalleresHN.Dominio.Models.DTO
 {
-    public class UserEmpresaInfo
+    public class UserTallerInfo
     {
         public string UserId { get; set; }
-        public string NombreEmpresa { get; set; }
-        public string NombreDueño { get; set; }
+        public string NombreTaller { get; set; }
+        public string NombrePropietario { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

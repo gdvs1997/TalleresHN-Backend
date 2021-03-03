@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BackendTalleresHN.FuenteDatos.Migrations
 {
-    public partial class ModificacionesEnTablaCliente : Migration
+    public partial class CreateTblEmpleadoTipoTallerModificacionEmpleadoATaller : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,6 +45,19 @@ namespace BackendTalleresHN.FuenteDatos.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TipoTaller",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Descripcion = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoTaller", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -161,7 +174,7 @@ namespace BackendTalleresHN.FuenteDatos.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nombre = table.Column<string>(nullable: false),
                     Apellidos = table.Column<string>(nullable: false),
-                    UserId = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: false),
                     FechaCreacion = table.Column<DateTime>(nullable: false),
                     Estado = table.Column<bool>(nullable: false)
                 },
@@ -173,7 +186,83 @@ namespace BackendTalleresHN.FuenteDatos.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Empresa",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    NombreTaller = table.Column<string>(nullable: false),
+                    NombreDueño = table.Column<string>(nullable: false),
+                    Direccion = table.Column<string>(nullable: false),
+                    Longitud = table.Column<float>(nullable: false),
+                    Latitud = table.Column<float>(nullable: false),
+                    UserId = table.Column<string>(nullable: false),
+                    FechaInscripcion = table.Column<DateTime>(nullable: false),
+                    Estado = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Empresa", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Empresa_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Empleado",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Nombres = table.Column<string>(nullable: false),
+                    Apellidos = table.Column<string>(nullable: false),
+                    TallerId = table.Column<string>(nullable: false),
+                    TallerId1 = table.Column<int>(nullable: true),
+                    FechaCreacion = table.Column<DateTime>(nullable: false),
+                    Estado = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Empleado", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Empleado_Empresa_TallerId1",
+                        column: x => x.TallerId1,
+                        principalTable: "Empresa",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TallerRelacionTipoTaller",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    TallerId = table.Column<int>(nullable: false),
+                    TipoTallerId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TallerRelacionTipoTaller", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TallerRelacionTipoTaller_Empresa_TallerId",
+                        column: x => x.TallerId,
+                        principalTable: "Empresa",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TallerRelacionTipoTaller_TipoTaller_TipoTallerId",
+                        column: x => x.TipoTallerId,
+                        principalTable: "TipoTaller",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -217,6 +306,26 @@ namespace BackendTalleresHN.FuenteDatos.Migrations
                 name: "IX_Cliente_UserId",
                 table: "Cliente",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Empleado_TallerId1",
+                table: "Empleado",
+                column: "TallerId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Empresa_UserId",
+                table: "Empresa",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TallerRelacionTipoTaller_TallerId",
+                table: "TallerRelacionTipoTaller",
+                column: "TallerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TallerRelacionTipoTaller_TipoTallerId",
+                table: "TallerRelacionTipoTaller",
+                column: "TipoTallerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -240,7 +349,19 @@ namespace BackendTalleresHN.FuenteDatos.Migrations
                 name: "Cliente");
 
             migrationBuilder.DropTable(
+                name: "Empleado");
+
+            migrationBuilder.DropTable(
+                name: "TallerRelacionTipoTaller");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Empresa");
+
+            migrationBuilder.DropTable(
+                name: "TipoTaller");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

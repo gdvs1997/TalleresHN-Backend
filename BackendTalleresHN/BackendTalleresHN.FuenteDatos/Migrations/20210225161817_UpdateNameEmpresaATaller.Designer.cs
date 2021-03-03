@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendTalleresHN.FuenteDatos.Migrations
 {
     [DbContext(typeof(TalleresHNDbContext))]
-    [Migration("20210223050752_ModificacionCliente3")]
-    partial class ModificacionCliente3
+    [Migration("20210225161817_UpdateNameEmpresaATaller")]
+    partial class UpdateNameEmpresaATaller
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -104,6 +104,7 @@ namespace BackendTalleresHN.FuenteDatos.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
@@ -111,6 +112,117 @@ namespace BackendTalleresHN.FuenteDatos.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Cliente");
+                });
+
+            modelBuilder.Entity("BackendTalleresHN.Dominio.Models.Empleado", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Apellidos")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Nombres")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("TallerId")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int?>("TallerId1")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TallerId1");
+
+                    b.ToTable("Empleado");
+                });
+
+            modelBuilder.Entity("BackendTalleresHN.Dominio.Models.Taller", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("FechaInscripcion")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<float>("Latitud")
+                        .HasColumnType("float");
+
+                    b.Property<float>("Longitud")
+                        .HasColumnType("float");
+
+                    b.Property<string>("NombreDueño")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("NombreTaller")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Taller");
+                });
+
+            modelBuilder.Entity("BackendTalleresHN.Dominio.Models.TallerRelacionTipoTaller", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("TallerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoTallerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TallerId");
+
+                    b.HasIndex("TipoTallerId");
+
+                    b.ToTable("TallerRelacionTipoTaller");
+                });
+
+            modelBuilder.Entity("BackendTalleresHN.Dominio.Models.TipoTaller", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TipoTaller");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -245,7 +357,40 @@ namespace BackendTalleresHN.FuenteDatos.Migrations
                 {
                     b.HasOne("BackendTalleresHN.Dominio.Models.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("BackendTalleresHN.Dominio.Models.Empleado", b =>
+                {
+                    b.HasOne("BackendTalleresHN.Dominio.Models.Taller", "Taller")
+                        .WithMany("Empleados")
+                        .HasForeignKey("TallerId1");
+                });
+
+            modelBuilder.Entity("BackendTalleresHN.Dominio.Models.Taller", b =>
+                {
+                    b.HasOne("BackendTalleresHN.Dominio.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("BackendTalleresHN.Dominio.Models.TallerRelacionTipoTaller", b =>
+                {
+                    b.HasOne("BackendTalleresHN.Dominio.Models.Taller", "Taller")
+                        .WithMany("TallerRelacionesTipoTaller")
+                        .HasForeignKey("TallerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BackendTalleresHN.Dominio.Models.TipoTaller", "TipoTaller")
+                        .WithMany("TallerRelacionesTipoTaller")
+                        .HasForeignKey("TipoTallerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BackendTalleresHN.Logica.Empresas
 {
-    public interface IEmpresaLogica
+    public interface ITallerLogica
     {
-        Task<ActionResult<UserToken>> CreateUserEmpresa(UserEmpresaInfo model);
+        Task<ActionResult<UserToken>> CreateUserTaller(UserTallerInfo model);
     }
 }

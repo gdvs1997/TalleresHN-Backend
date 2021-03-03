@@ -17,14 +17,14 @@ using System.Threading.Tasks;
 
 namespace BackendTalleresHN.Logica.Empresas
 {
-    public class EmpresaLogica : IEmpresaLogica
+    public class TallerLogica : ITallerLogica
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
         private readonly IRepository _repository;
 
-        public EmpresaLogica(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
+        public TallerLogica(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
                               IConfiguration configuration, IRepository repository)
         {
             _userManager = userManager;
@@ -32,9 +32,9 @@ namespace BackendTalleresHN.Logica.Empresas
             _configuration = configuration;
             _repository = repository;
         }
-        public async Task<ActionResult<UserToken>> CreateUserEmpresa(UserEmpresaInfo model)
+        public async Task<ActionResult<UserToken>> CreateUserTaller(UserTallerInfo model)
         {
-            var validationInfo = await ValidateInfoUserEmpresa(model);
+            var validationInfo = await ValidateInfoUserTaller(model);
             if (validationInfo.Codigo == HttpStatusCode.Found || validationInfo.Codigo == HttpStatusCode.BadRequest)
             {
                 return new UserToken
@@ -56,10 +56,10 @@ namespace BackendTalleresHN.Logica.Empresas
 
                     var config = new MapperConfiguration(cfg =>
                     {
-                        cfg.CreateMap<UserEmpresaInfo, Empresa>();
+                        cfg.CreateMap<UserTallerInfo, Taller>();
                     });
                     IMapper iMapper = config.CreateMapper();
-                    var mappClass = iMapper.Map<UserEmpresaInfo, Empresa>(model);
+                    var mappClass = iMapper.Map<UserTallerInfo, Taller>(model);
 
                     await _repository.CreatedAsync(mappClass);
 
@@ -108,7 +108,7 @@ namespace BackendTalleresHN.Logica.Empresas
             };
         }
 
-        private async Task<Request<bool>> ValidateInfoUserEmpresa(UserEmpresaInfo model)
+        private async Task<Request<bool>> ValidateInfoUserTaller(UserTallerInfo model)
         {
             var passwordValidator = new PasswordValidator<ApplicationUser>();
             var _request = new Request<bool>();

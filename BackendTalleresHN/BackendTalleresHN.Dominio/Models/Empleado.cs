@@ -6,24 +6,20 @@ using System.Text;
 
 namespace BackendTalleresHN.Dominio.Models
 {
-    public class Empresa
+    public class Empleado
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required(ErrorMessage = "This field is required")]
-        public string NombreEmpresa { get; set; }
+        public string Nombres { get; set; }
         [Required(ErrorMessage = "This field is required")]
-        public string NombreDueño { get; set; }
+        public string Apellidos { get; set; }
         [Required(ErrorMessage = "This field is required")]
-        public string Direccion { get; set; }
-        public float Longitud { get; set; }
-        public float Latitud { get; set; }
+        public int TallerId { get; set; }
+        public Taller Taller { get; set; }
         [Required(ErrorMessage = "This field is required")]
-        public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
-        [Required(ErrorMessage = "This field is required")]
-        public DateTime FechaInscripcion { get; set; }
+        public DateTime FechaCreacion { get; set; }
         [Required(ErrorMessage = "This field is required")]
         public bool Estado { get; set; }
     }
