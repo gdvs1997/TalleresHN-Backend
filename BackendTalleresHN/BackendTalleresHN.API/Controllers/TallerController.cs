@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using BackendTalleresHN.Dominio.Models.DTO;
 using BackendTalleresHN.Logica.Empresas;
-using BackendTalleresHN.Logica.Usuario;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

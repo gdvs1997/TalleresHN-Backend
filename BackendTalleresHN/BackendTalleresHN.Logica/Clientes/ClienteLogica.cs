@@ -15,16 +15,16 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BackendTalleresHN.Logica.Usuario
+namespace BackendTalleresHN.Logica.Clientes
 {
-    public class UsuarioLogica : IUsuarioLogica
+    public class ClienteLogica : IClienteLogica
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
         private readonly IRepository _repository;
         
-        public UsuarioLogica( UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
+        public ClienteLogica( UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
                               IConfiguration configuration, IRepository repository)
         {
             _userManager = userManager;

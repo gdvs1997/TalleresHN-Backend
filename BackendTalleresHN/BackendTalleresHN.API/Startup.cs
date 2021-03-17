@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using BackendTalleresHN.Dominio.Models;
 using BackendTalleresHN.FuenteDatos.Contexts;
+using BackendTalleresHN.Logica.Clientes;
 using BackendTalleresHN.Logica.Empresas;
 using BackendTalleresHN.Logica.Login;
-using BackendTalleresHN.Logica.Usuario;
 using BackendTalleresHN.PersistenciaDatos.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -37,7 +37,7 @@ namespace BackendTalleresHN.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IRepository, Repository<TalleresHNDbContext>>();
-            services.AddScoped<IUsuarioLogica, UsuarioLogica>();
+            services.AddScoped<IClienteLogica, ClienteLogica>();
             services.AddScoped<ILoginLogica, LoginLogica>();
             services.AddScoped<ITallerLogica, TallerLogica>();
 

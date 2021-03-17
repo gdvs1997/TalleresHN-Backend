@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BackendTalleresHN.Dominio.Models.DTO;
-using BackendTalleresHN.Logica.Usuario;
+using BackendTalleresHN.Logica.Clientes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +11,11 @@ namespace BackendTalleresHN.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioController : ControllerBase
+    public class ClienteController : ControllerBase
     {
-        private readonly IUsuarioLogica _logica;
+        private readonly IClienteLogica _logica;
 
-        public UsuarioController(IUsuarioLogica logica)
+        public ClienteController(IClienteLogica logica)
         {
             _logica = logica;
         }
